@@ -2,7 +2,7 @@ body{
   background-color: #0D0D0D;
 }
 .nav{
-  z-index: 99;
+  z-index: 999;
 }
 .black-nav{
   width: 256px;
@@ -49,7 +49,7 @@ li{
   top: 0;
 }
 .food-name{
-  z-index: 999;
+  z-index: 99;
 }
 .food{
   cursor: pointer;

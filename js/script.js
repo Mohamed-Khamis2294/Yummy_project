@@ -43,7 +43,9 @@ async function searchFirst(){
 async function displayFirst(x){
   document.querySelector('.foods').innerHTML='';
   // displayFirst(function(){return []});
- const arr=await x();
+  spinner.classList.replace('d-none','d-flex');  
+  const arr=await x();
+  spinner.classList.replace('d-flex','d-none');
   arr.forEach(obj => {
     document.querySelector('.foods').insertAdjacentHTML('beforeend',`
 <div class="food inner col-sm-6 col-md-4 col-lg-3">
@@ -148,9 +150,12 @@ displayFirst(function(){
 });
 })
 document.querySelector('.search-letter').addEventListener('keyup',function(){
-displayFirst(function(){
-  return searchByName(document.querySelector('.search-letter').value);
-});
+  spinner.classList.replace('d-none','d-flex');  
+  
+  displayFirst(function(){
+    return searchByName(document.querySelector('.search-letter').value);
+  });
+  spinner.classList.replace('d-flex','d-none');
 })
 document.querySelector('.search').addEventListener('click',function(){
   document.querySelector('.contacts').classList.replace('d-flex','d-none')
@@ -196,9 +201,11 @@ document.querySelector('.foods').addEventListener('click',async function(e){
   const res=await data.json();
   const {meals}=res;
   meals.splice(20);
-   displayFirst(function(){
+  spinner.classList.replace('d-none','d-flex');  
+  displayFirst(function(){
     return meals;
   })
+  spinner.classList.replace('d-flex','d-none');
 })
 // *****************************************************
 // **********Areas*********************************
@@ -230,9 +237,11 @@ document.querySelector('.foods').addEventListener('click',async function(e){
   const res=await data.json();
   const {meals}=res;
   meals.splice(20);
-   displayFirst(function(){
+  spinner.classList.replace('d-none','d-flex');  
+  displayFirst(function(){
     return meals;
   })
+  spinner.classList.replace('d-flex','d-none');
 })
 // *****************************************************
 // **********ingradients*********************************
@@ -267,9 +276,11 @@ document.querySelector('.foods').addEventListener('click',async function(e){
   const {meals}=res;
   console.log(res);
   meals.splice(20);
-   displayFirst(function(){
+  spinner.classList.replace('d-none','d-flex');  
+  displayFirst(function(){
     return meals;
   })
+  spinner.classList.replace('d-flex','d-none');
 })
 // *****************************************************
 // **********logo-backtohome*********************************
